@@ -40,14 +40,16 @@ var et = require('element-theme')
 // watch mode
 et.watch({
   config: 'variables/path',
-  out: 'output/path'
+  out: 'output/path',
+  vue3: true,
 })
 
 // build
 et.run({
   config: 'variables/path',
   out: 'output/path',
-  minimize: true
+  minimize: true,
+  vue3: true,
 })
 ```
 
@@ -60,6 +62,9 @@ Theme output path, default `./theme`.
 
 ### minimize
 Compressed file.
+
+### vue3
+Build theme for vue3, set it to `true` to append `el-` prefix to style files. If your Vue3 project failed to compile showing `Module not found: Error: Can't resolve ... theme/el-XXX.css`, this is the solution. By default, it builds for vue2.
 
 ### browsers
 set browsers, default `['ie > 9', 'last 2 versions']`.
@@ -80,6 +85,7 @@ You can configure some options in `element-theme` by putting it in package.json:
     "config": "./element-variables.css",
     "theme": "element-theme-chalk",
     "minimize": false,
+    "vue3": true,
     "components": ["button", "input"]
   }
 }
